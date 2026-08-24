@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoDEVault | Official Brand & Agreement Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("0AhJPtB1MFBdJ2Gsb");
+        })();
+    </script>
+    <style>
+        :root {
+            --bg-deep: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1c1c1c;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #997a15;
+            --text-main: #f5f5f5;
+            --text-muted: #a3a3a3;
+            --border: #262626;
+            --border-gold: rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 6%;
+            z-index: 1000;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 6px;
+            border: 1px solid var(--border-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-logo:hover img {
+            transform: scale(1.08) rotate(3deg);
+        }
+
+        .nav-logo span {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Hero Section */
+        header.hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, var(--bg-deep) 70%);
+            position: relative;
+        }
+
+        .hero-logo-container {
+            margin-bottom: 25px;
+            position: relative;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .hero-logo-container::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(212,175,55,0.3) 0%, transparent 70%);
+            z-index: -1;
+            border-radius: 50%;
+            animation: pulseGlow 3s infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from { transform: scale(0.95); opacity: 0.5; }
+            to { transform: scale(1.1); opacity: 1; }
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 35px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero .cta-btn {
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 10%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gold);
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* Vision Grid */
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .vision-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 8px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .vision-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .vision-card:hover {
+            border-color: var(--border-gold);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .vision-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .vision-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Fashion Editorial Gallery Grid */
+        .fashion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .fashion-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            height: 380px;
+            transition: all 0.4s ease;
+        }
+
+        .fashion-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease, filter 0.6s ease;
+            filter: grayscale(30%) contrast(110%);
+        }
+
+        .fashion-card:hover img {
+            transform: scale(1.08);
+            filter: grayscale(0%) contrast(120%);
+        }
+
+        .fashion-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0.85;
+            transition: opacity 0.3s ease;
+        }
+
+        .fashion-card:hover .fashion-overlay {
+            opacity: 1;
+        }
+
+        .fashion-overlay span {
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .fashion-overlay h4 {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        /* Portal & Agreement Container */
+        .portal-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.7);
+        }
+
+        .form-step {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-step h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            background: var(--bg-deep);
+            border: 1px solid var(--border);
+            padding: 14px 16px;
+            color: var(--text-main);
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Agreement Box */
+        .agreement-box {
+            background: #0f0f0f;
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 8px;
+            max-height: 380px;
+            overflow-y: auto;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .agreement-box h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .agreement-box ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .agreement-box li {
+            margin-bottom: 6px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 60px 10% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .footer-about p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 350px;
+        }
+
+        .footer-links h4 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 25px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.3rem; }
+            .portal-container { padding: 25px; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="logo.jpg" alt="MoDEVault Logo">
+            <span>MoDEVault</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#aesthetic">Editorial</a></li>
+            <li><a href="#portal">Agreement Portal</a></li>
+        </ul>
+        <a href="#portal" class="cta-btn">Join & Sign</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-logo-container">
+            <img src="logo.jpg" alt="MoDEVault Gold Logo" class="hero-logo">
+        </div>
+        <h1>MoDEVault</h1>
+        <p>Curating the bold, defining the underground aesthetic, and engineering next-generation digital platforms.</p>
+        <a href="#portal" class="cta-btn">Enter Portal</a>
+    </header>
+
+    <!-- Vision Section -->
+    <section id="vision">
+        <div class="section-title">
+            <p>01. Core Architecture</p>
+            <h2>Vision & Manifesto</h2>
+        </div>
+        <div class="vision-grid">
+            <div class="vision-card">
+                <h3>Cinematic Storytelling</h3>
+                <p>High-contrast, moody, and editorial-style visual production defining elite digital branding.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Underground Aesthetic</h3>
+                <p>Merging minimalist streetwear culture with futuristic tech architecture and high-end precision.</p>
+            </div>
+            <div class="vision-card">
+                <h3>Collaborative Core</h3>
+                <p>Empowering creators, video editors, developers, and visionaries through transparent partnerships.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fashion Editorial Gallery Section -->
+    <section id="aesthetic" style="background-color: var(--bg-card);">
+        <div class="section-title">
+            <p>02. Visual Standard</p>
+            <h2>Fashion & Editorial Curation</h2>
+        </div>
+        <div class="fashion-grid">
+            <div class="fashion-card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Editorial Fashion 1">
+                <div class="fashion-overlay">
+                    <span>Streetwear Culture</span>
+                    <h4>Minimalist Monochrome</h4>
+                </div>
+            </div>
+            <div class="fashion-card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" alt="Editorial Fashion 2">
+                <div class="fashion-overlay">
+                    <span>Vogue Standard</span>
+                    <h4>Dramatic Shadow Play</h4>
+                </div>
+            </div>
+            <div class="fashion-card">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Editorial Fashion 3">
+                <div class="fashion-overlay">
+                    <span>High-End Aesthetics</span>
+                    <h4>Underground Noir</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal & Agreement Section -->
+    <section id="portal">
+        <div class="section-title">
+            <p>03. Secure Onboarding</p>
+            <h2>Application & Agreement Portal</h2>
+        </div>
+
+        <div class="portal-container">
+            <!-- Step 1: User Details Form -->
+            <div id="step-form" class="form-step">
+                <h3>Candidate / Partner Registration</h3>
+                <form id="onboardingForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" required placeholder="Enter your full legal name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="Enter your active email">
+                    </div>
+                    <div class="form-group">
+                        <label for="roleType">Select Partnership Role</label>
+                        <select id="roleType" required>
+                            <option value="">-- Choose Role --</option>
+                            <option value="Influencer">Influencer Partner</option>
+                            <option value="Core Team">Core Team / Developer / Editor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="workDetail">Specific Work / Role Focus</label>
+                        <input type="text" id="workDetail" required placeholder="e.g., Video Editing, UI/UX, Style Curation, AI Scripting">
+                    </div>
+                    <button type="button" class="cta-btn" style="width: 100%; margin-top: 15px; padding: 14px;" onclick="proceedToAgreement()">Proceed to Agreement</button>
+                </form>
+            </div>
+
+            <!-- Step 2: Agreement Review & Signature -->
+            <div id="step-agreement" class="form-step hidden">
+                <h3 id="agreementTitle">Official Agreement Review</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">Please review the official terms below. Your application details have been pre-filled.</p>
+                
+                <div class="agreement-box" id="agreementContentBox">
+                    <!-- Dynamically injected agreement text -->
+                </div>
+
+                <div class="form-group">
+                    <label for="digitalSignature">Digital Signature (Type your full name as signature)</label>
+                    <input type="text" id="digitalSignature" required placeholder="Type your full name to sign">
+                </div>
+
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <button type="button" class="cta-btn" style="background: transparent; border: 1px solid var(--border); color: var(--text-main);" onclick="goBackToForm()">Back</button>
+                    <button type="button" class="cta-btn" style="flex: 1; padding: 14px;" onclick="submitAgreement()">Sign & Submit Agreement</button>
+                </div>
+            </div>
+
+            <!-- Step 3: Success State -->
+            <div id="step-success" class="form-step hidden" style="text-align: center; padding: 30px 0;">
+                <h3 style="color: var(--gold); margin-bottom: 15px;">Agreement Signed Successfully!</h3>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">Your signed agreement and details have been securely dispatched to MoDEVault administration (modevault2026@gmail.com).</p>
+                <button type="button" class="cta-btn" onclick="resetPortal()">Submit Another Response</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <h3>MoDEVault</h3>
+                <p>Curating the bold and engineering underground digital standards. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Legal & Terms</h4>
+                <ul>
+                    <li><a href="#portal">Terms & Conditions</a></li>
+                    <li><a href="#portal">Privacy Policy</a></li>
+                    <li><a href="#portal">IP Protection</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Admin</h4>
+                <ul>
+                    <li><a href="mailto:modevault2026@gmail.com">modevault2026@gmail.com</a></li>
+                    <li><a href="#">Instagram Portal</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 MoDEVault Ecosystem. Led by Dev.
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let userData = {};
+
+        const influencerText = `
+            <h4>Influencer Partnership & Collaboration Agreement</h4>
+            <p>This Creative Partnership Agreement is entered into by and between <strong>MoDEVault</strong> (represented by Dev, Founder & Lead Visionary) and the designated Partner.</p>
+            <p><strong>01. Vision & Scope:</strong> The Partner agrees to visually represent, curate, and market the MoDEVault brand aesthetic across their digital channels under mutual creative evaluation.</p>
+            <p><strong>02. Compensation & Payout:</strong> Advance retainers and performance milestone payouts are strictly tied to targeted content reach and engagement thresholds.</p>
+            <p><strong>03. Standards:</strong> Maintaining high cinematic editorial standards aligned with the MoDEVault brand identity.</p>
+        `;
+
+        const coreTeamText = `
+            <h4>Internal Operations & Core Team Agreement</h4>
+            <p>This Internal Operations Agreement is entered into by and between the core management of <strong>MoDEVault</strong> (led by Dev, Founder & Core Architect) and the designated Team Member.</p>
+            <p><strong>01. Technical & Creative Scope:</strong> Governs core operational responsibilities including video editing, code maintenance, UI/UX, AI scripting, and aesthetic direction.</p>
+            <p><strong>02. Rewards & Growth:</strong> Foundational contributions build core IP equity, with future compensation scaling directly with brand milestone achievements.</p>
+            <p><strong>03. Intellectual Property:</strong> All scripts, source code, designs, and frameworks remain exclusive proprietary property of MoDEVault.</p>
+        `;
+
+        function proceedToAgreement() {
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const role = document.getElementById('roleType').value;
+            const workDetail = document.getElementById('workDetail').value.trim();
+
+            if (!name || !email || !role || !workDetail) {
+                alert('Please fill out all fields before proceeding.');
+                return;
+            }
+
+            userData = { name, email, role, workDetail };
+
+            const box = document.getElementById('agreementContentBox');
+            if (role === 'Influencer') {
+                document.getElementById('agreementTitle').innerText = 'Influencer Partnership Agreement';
+                box.innerHTML = influencerText + `<p style="margin-top:15px; color:var(--gold);"><strong>Applicant:</strong> ${name} (${email}) - Focus: ${workDetail}</p>`;
+            } else {
+                document.getElementById('agreementTitle').innerText = 'Core Team Operations Agreement';
+                box.innerHTML = coreTeamText + `<p style="margin-top:15px; color:var(--gold);"><strong>Applicant:</strong> ${name} (${email}) - Focus: ${workDetail}</p>`;
+            }
+
+            document.getElementById('step-form').classList.add('hidden');
+            document.getElementById('step-agreement').classList.remove('hidden');
+        }
+
+        function goBackToForm() {
+            document.getElementById('step-agreement').classList.add('hidden');
+            document.getElementById('step-form').classList.remove('hidden');
+        }
+
+        function submitAgreement() {
+            const signature = document.getElementById('digitalSignature').value.trim();
+            if (!signature) {
+                alert('Please type your digital signature to sign the agreement.');
+                return;
+            }
+
+            userData.signature = signature;
+            userData.timestamp = new Date().toLocaleString();
+
+            const templateParams = {
+                applicant_name: userData.name,
+                applicant_email: userData.email,
+                role_type: userData.role,
+                work_detail: userData.workDetail,
+                digital_signature: userData.signature,
+                timestamp: userData.timestamp
+            };
+
+            emailjs.send('service_71vru46', 'template_p1x4m3j', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Error sending email. Please check console.');
+                });
+
+            document.getElementById('step-agreement').classList.add('hidden');
+            document.getElementById('step-success').classList.remove('hidden');
+        }
+
+        function resetPortal() {
+            document.getElementById('onboardingForm').reset();
+            document.getElementById('digitalSignature').value = '';
+            document.getElementById('step-success').classList.add('hidden');
+            document.getElementById('step-form').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
